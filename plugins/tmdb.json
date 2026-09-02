@@ -1,0 +1,33 @@
+{
+  "версія": 1,
+  "плагін": {
+    "ключ": "ref-tmdb",
+    "назва": "Рейтинг серіалів і фільмів (TMDB)",
+    "опис": "Додає до карток серіалів і фільмів оцінку, оригінальну назву, рік і постер. Потрібен безкоштовний ключ TMDB — вписується тут, у списку плагінів.",
+    "версія": "1.0",
+    "оновлено": "2026-09-02"
+  },
+  "довідник": {
+    "назва": "TMDB",
+    "домени": ["api.themoviedb.org", "image.tmdb.org"],
+    "для": ["series", "movie"],
+    "ключ-потрібен": true,
+    "поле-ключа": "Ключ TMDB (API Key v3)",
+    "де-взяти-ключ": "themoviedb.org → профіль → Settings → API → створити ключ (безкоштовно)",
+    "пошук": {
+      "адреса": "https://api.themoviedb.org/3/search/multi?api_key={ключ}&language=uk-UA&include_adult=false&query={q}",
+      "як": "json",
+      "список": "results",
+      "поля": {
+        "назва": "name|title",
+        "оригінал": "original_name|original_title",
+        "рейтинг": "vote_average",
+        "рік": "first_air_date|release_date",
+        "постер": "poster_path",
+        "id": "id"
+      },
+      "префікс-постера": "https://image.tmdb.org/t/p/w500",
+      "шаблон-сторінки": "https://www.themoviedb.org/tv/{id}"
+    }
+  }
+}
