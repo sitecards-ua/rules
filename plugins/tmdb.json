@@ -3,31 +3,41 @@
   "плагін": {
     "ключ": "ref-tmdb",
     "назва": "Рейтинг серіалів і фільмів (TMDB)",
-    "опис": "Додає до карток серіалів і фільмів оцінку, оригінальну назву, рік і постер. Потрібен безкоштовний ключ TMDB — вписується тут, у списку плагінів.",
-    "версія": "1.0",
-    "оновлено": "2026-09-02"
+    "опис": "Додає до карток серіалів і фільмів оцінку, оригінальну назву, рік і обкладинку. Ключ не потрібен — читається публічна сторінка themoviedb.org.",
+    "версія": "2.0",
+    "оновлено": "2026-09-03"
   },
   "довідник": {
     "назва": "TMDB",
-    "домени": ["api.themoviedb.org", "image.tmdb.org"],
+    "домени": ["www.themoviedb.org", "themoviedb.org", "media.themoviedb.org"],
     "для": ["series", "movie"],
-    "ключ-потрібен": true,
-    "поле-ключа": "Ключ TMDB (API Key v3)",
-    "де-взяти-ключ": "themoviedb.org → профіль → Settings → API → створити ключ (безкоштовно)",
+    "ключ-потрібен": false,
     "пошук": {
-      "адреса": "https://api.themoviedb.org/3/search/multi?api_key={ключ}&language=uk-UA&include_adult=false&query={q}",
-      "як": "json",
-      "список": "results",
+      "адреса": "https://www.themoviedb.org/search/tv?query={q}&language=uk-UA",
+      "як": "html",
+      "картка": "[data-object-id]",
+      "база": "https://www.themoviedb.org",
       "поля": {
-        "назва": "name|title",
-        "оригінал": "original_name|original_title",
-        "рейтинг": "vote_average",
-        "рік": "first_air_date|release_date",
-        "постер": "poster_path",
-        "id": "id"
-      },
-      "префікс-постера": "https://image.tmdb.org/t/p/w500",
-      "шаблон-сторінки": "https://www.themoviedb.org/tv/{id}"
+        "адреса": { "вузол": "a[href*='/tv/'], a[href*='/movie/']", "атрибут": "href" },
+        "назва": { "вузол": "h2 span", "чистка": "назва" },
+        "оригінал": { "вузол": "h2 span.font-light", "витяг": "\\(([^)]{2,80})\\)" },
+        "постер": { "вузол": "img.poster", "атрибут": ["src", "data-src"] },
+        "рік": { "вузол": ".release_date", "витяг": "((?:19|20)\\d{2})", "число": true }
+      }
+    },
+    "сторінка": {
+      "поля": {
+        "рейтинг": [
+          { "json-ld": "aggregateRating.ratingValue" }
+        ],
+        "постер": [{ "мета": "image" }],
+        "оригінал": [
+          { "підпис": ["оригінальна назва", "оригинальное название", "original name", "original title"], "обрізати": 120 }
+        ],
+        "стан": [
+          { "підпис": ["статус", "status"], "обрізати": 40 }
+        ]
+      }
     }
   }
 }
