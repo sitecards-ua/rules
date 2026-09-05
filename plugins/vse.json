@@ -4,7 +4,7 @@
     "ключ": "use-odrazu",
     "назва": "Усе одразу",
     "опис": "Один набір замість п'яти: сторінка «Бібліотека», чотири сайти (UAKino, UASerials, HDrezka, AnimeLib) і оцінки без ключів — TMDB для серіалів і фільмів, Shikimori для аніме. HDrezka й AnimeLib читаються лише з увімкненим читачем у вкладці.",
-    "версія": "1.2",
+    "версія": "1.3",
     "оновлено": "2026-09-05"
   },
   "сторінка": {
@@ -693,6 +693,7 @@
     {
       "назва": "Shikimori",
       "домени": [
+        "shikimori.io",
         "shikimori.one"
       ],
       "для": [
@@ -700,7 +701,7 @@
       ],
       "ключ-потрібен": false,
       "пошук": {
-        "адреса": "https://shikimori.one/api/animes?limit=5&search={q}",
+        "адреса": "https://shikimori.io/api/animes?limit=5&search={q}",
         "як": "json",
         "поля": {
           "назва": "russian|name",
@@ -708,9 +709,11 @@
           "рейтинг": "score",
           "рік": "aired_on",
           "постер": "image.original",
-          "сторінка": "url"
+          "сторінка": "url",
+          "всього": "episodes",
+          "доступно": "episodes_aired"
         },
-        "база": "https://shikimori.one"
+        "база": "https://shikimori.io"
       }
     }
   ],

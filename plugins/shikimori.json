@@ -4,16 +4,21 @@
     "ключ": "ref-shikimori",
     "назва": "Рейтинг аніме (Shikimori)",
     "опис": "Додає до карток аніме оцінку, оригінальну назву, рік і чистий постер. Ключ не потрібен.",
-    "версія": "1.0",
-    "оновлено": "2026-09-02"
+    "версія": "1.1",
+    "оновлено": "2026-09-05"
   },
   "довідник": {
     "назва": "Shikimori",
-    "домени": ["shikimori.one"],
-    "для": ["anime"],
+    "домени": [
+      "shikimori.io",
+      "shikimori.one"
+    ],
+    "для": [
+      "anime"
+    ],
     "ключ-потрібен": false,
     "пошук": {
-      "адреса": "https://shikimori.one/api/animes?limit=5&search={q}",
+      "адреса": "https://shikimori.io/api/animes?limit=5&search={q}",
       "як": "json",
       "поля": {
         "назва": "russian|name",
@@ -21,9 +26,11 @@
         "рейтинг": "score",
         "рік": "aired_on",
         "постер": "image.original",
-        "сторінка": "url"
+        "сторінка": "url",
+        "всього": "episodes",
+        "доступно": "episodes_aired"
       },
-      "база": "https://shikimori.one"
+      "база": "https://shikimori.io"
     }
   }
 }
