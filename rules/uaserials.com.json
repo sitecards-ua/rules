@@ -4,17 +4,23 @@
     "ключ": "uaserials",
     "назва": "UASerials",
     "домени": [
-      "uaserials.com",
-      "uaserials.my",
-      "uaserials.one",
-      "uaserials.vip",
-      "uaserial.tv"
+      "uaserials.com"
     ],
-    "перевірено": "2026-09-03"
+    "перевірено": "2026-08-24",
+    "читає": [
+      "title",
+      "poster",
+      "ep",
+      "latest",
+      "season",
+      "team",
+      "year"
+    ],
+    "впізнавати": [
+      "^(?:www\\.)?uaserials?\\.[a-z.]+$"
+    ]
   },
   "сторінка": {
-    "тільки-у-вкладці": false,
-    "заголовок-про-відкрите": false,
     "обрізати-адресу": "/(watch|player|episode)\\b.*$",
     "ключ-картки": {
       "спосіб": "шлях",
@@ -159,6 +165,52 @@
         "витяг": "((?:19|20)\\d{2})",
         "число": true
       }
+    }
+  },
+  "шаблон": {
+    "вид-читання": "підписи",
+    "озвучка": "рядок",
+    "назва-в-лапках": true,
+    "підписи": {
+      "рік": [
+        "рік виходу",
+        "рік",
+        "год выхода"
+      ],
+      "серії": [
+        "прогрес",
+        "прогресс",
+        "кількість серій",
+        "серій"
+      ],
+      "переклад": [
+        "переклад",
+        "озвучення",
+        "озвучка",
+        "перевод"
+      ],
+      "жанр": [
+        "жанр",
+        "категорія"
+      ]
+    },
+    "фільм-адреса": "/(?:film|movie|movies|filmy)/",
+    "вид": "series",
+    "заголовок": [
+      "h1.short-title",
+      ".short-title",
+      "h1",
+      ".fullstory-title"
+    ],
+    "пошук": {
+      "адреса": "https://{host}/index.php?do=search&subaction=search&titleonly=3&full_search=1&result_from=1&story={q}",
+      "картка": "#dle-content .uas-card, .uas-grid .uas-card",
+      "посилання-на-картці": true,
+      "назва": ".uas-card__title",
+      "обкладинка": ".uas-card__poster",
+      "оригінал": ".uas-card__orig",
+      "рік": ".uas-card__year",
+      "оцінка": ".uas-card__rating"
     }
   }
 }

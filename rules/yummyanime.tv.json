@@ -1,0 +1,43 @@
+{
+  "версія": 1,
+  "сайт": {
+    "ключ": "yummyanime",
+    "назва": "YummyAnime",
+    "домени": [
+      "yummyanime.tv"
+    ],
+    "перевірено": "2026-09-05",
+    "читає": [
+      "title",
+      "origTitle",
+      "poster",
+      "year"
+    ],
+    "впізнавати": [
+      "^(?:www\\.)?yummyanime\\.tv$"
+    ]
+  },
+  "сторінка": {
+    "обрізати-адресу": "/(?:watch|player)\\b.*$",
+    "ключ-картки": {
+      "спосіб": "шлях",
+      "прибрати-розширення": true
+    }
+  },
+  "поля": {},
+  "шаблон": {
+    "вид-читання": "стаття",
+    "заголовок": "article[itemscope] h1[itemprop=\"name\"], article h1, h1",
+    "підзаголовок": ".inner-page__subtitle, [itemprop=\"alternativeHeadline\"]",
+    "постер-посилання": ".inner-page__img link[itemprop~=\"contentUrl\"], link[itemprop~=\"contentUrl\"]",
+    "постер-картинка": ".inner-page__img img, [itemprop=\"image\"] img",
+    "рядки": ".inner-page__list li, .inner-page__list div",
+    "рядок-року": "год\\s+выхода|рік\\s+виходу",
+    "крихти": ".speedbar a[href], .breadcrumbs a[href]",
+    "крихта-фільму": "/movies?/",
+    "вид": "anime",
+    "тривалість": ".inner-page__list [itemprop~=\"duration\"]",
+    "жанри": ".inner-page__list [itemprop~=\"genre\"] a",
+    "рядок-озвучки": "озвучка\\s+от"
+  }
+}

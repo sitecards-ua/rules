@@ -4,9 +4,25 @@
     "ключ": "hdrezka",
     "назва": "HDrezka",
     "домени": [
-      "hdrezka.co"
+      "hdrezka.co",
+      "hdrezka.ag",
+      "rezka.ag"
     ],
-    "перевірено": "2026-09-05"
+    "перевірено": "2026-08-21",
+    "читає": [
+      "title",
+      "origTitle",
+      "poster",
+      "ep",
+      "latest",
+      "season",
+      "team",
+      "year",
+      "schedule"
+    ],
+    "впізнавати": [
+      "^(?:www\\.)?(?:hd)?rezka[\\w-]*\\.[a-z.]+$"
+    ]
   },
   "сторінка": {
     "тільки-у-вкладці": true,
@@ -118,7 +134,8 @@
             "[id^=\"simple-episodes-list\"]:not([style]) li.active"
           ],
           "із-заголовка": false
-        }
+        },
+        "вимагає-видимості": true
       }
     ],
     "країна": [
@@ -150,6 +167,55 @@
       {
         "вузол": "#translators-list li"
       }
-    ]
+    ],
+    "наступна": {
+      "розклад": {
+        "рядки": [
+          ".b-post__schedule_table tr",
+          ".b-post__schedule tr"
+        ]
+      }
+    }
+  },
+  "шаблон": {
+    "вид-читання": "таблиця",
+    "рядки-інформації": ".b-post__info tr, .b-post__info__item, tr",
+    "аніме-у-заголовку": "(?<![\\wа-яіїєґ])(?:аниме|аніме)(?![\\wа-яіїєґ])",
+    "аніме-у-рядках": [
+      "из\\s+серии",
+      "жанр"
+    ],
+    "аніме-слово": "аниме",
+    "аніме-у-h1": "\\[\\s*тв[-\\s]?\\d",
+    "фільм-адреса": "/films?/",
+    "рядок-року": "дата\\s+выхода|год\\s+выпуска|рік",
+    "рік-з-адреси": "-((?:19|20)\\d{2})\\.html?$",
+    "активний-переклад": ".b-translator__item.active, .b-translators__list .active",
+    "серії": ".b-simple_episode__item",
+    "переклади": "#translators-list li[data-translator_id], .b-translator__item",
+    "активний-сезон": ".b-simple_season__item.active",
+    "розклад": ".b-post__schedule",
+    "рядки-розкладу": "tr, .b-post__schedule_list__item",
+    "заголовок": [
+      ".b-post__title h1",
+      "h1"
+    ],
+    "оригінал": [
+      ".b-post__origtitle"
+    ],
+    "обкладинка": ".b-sidecover img, .b-post__infotable_left img",
+    "пошук": {
+      "адреса": "https://{host}/search/?do=search&subaction=search&q={q}",
+      "куки": true,
+      "готово": ".b-content__inline_item",
+      "картка": ".b-content__inline_item",
+      "посилання-з-атрибута": "data-url",
+      "посилання": ".b-content__inline_item-link a[href], .b-content__inline_item-cover a[href]",
+      "назва": ".b-content__inline_item-link a",
+      "обкладинка": ".b-content__inline_item-cover",
+      "без-оцінок": true,
+      "мета-під-назвою": ".b-content__inline_item-link div",
+      "вид-за-підписом": ".cat .entity"
+    }
   }
 }
